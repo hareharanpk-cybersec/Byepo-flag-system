@@ -1,0 +1,23 @@
+{
+  "name": "feature-flag-backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5",
+    "bcrypt": "^5",
+    "cors": "^2",
+    "dotenv": "^16.6.1",
+    "express": "^4",
+    "express-rate-limit": "^7",
+    "express-validator": "^7",
+    "jsonwebtoken": "^9"
+  },
+  "devDependencies": {
+    "nodemon": "^3",
+    "prisma": "^5"
+  }
+}

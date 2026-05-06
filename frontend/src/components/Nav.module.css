@@ -1,0 +1,106 @@
+.nav {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background: rgba(13, 19, 32, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.navInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 72px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+
+.logoMark {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--color-highlight), #ff7b00);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(255, 165, 0, 0.4);
+}
+
+.logoText {
+  color: var(--color-text);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.logoSubtext {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: 14px;
+  border-left: 2px solid var(--color-border);
+  padding-left: 12px;
+  margin-top: 2px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.rolePill {
+  background: var(--color-highlight-soft);
+  color: var(--color-highlight);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 165, 0, 0.25);
+}
+
+.logoutBtn {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background: var(--color-highlight-soft);
+  border-color: var(--color-highlight);
+  color: var(--color-highlight);
+  transform: translateY(-1px);
+}
+
+.logoutBtn:active {
+  transform: scale(0.97);
+}

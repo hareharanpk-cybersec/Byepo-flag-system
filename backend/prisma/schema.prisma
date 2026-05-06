@@ -1,0 +1,73 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id                  String        @id @default(uuid())
+  name                String        @unique
+  status              String        @default("ACTIVE")
+  deletionScheduledAt DateTime?
+  createdAt           DateTime      @default(now())
+  users               User[]
+  flags               FeatureFlag[]
+  apiKeys             ApiKey[]
+  auditLogs           AuditLog[]
+}
+
+model User {
+  id               String       @id @default(uuid())
+  email            String       @unique
+  username         String?
+  password         String
+  role             Role         @default(END_USER)
+  orgId            String
+  org              Organization @relation(fields: [orgId], references: [id])
+  createdAt        DateTime     @default(now())
+  resetToken       String?
+  resetTokenExpiry DateTime?
+}
+
+enum Role {
+  ORG_ADMIN
+  END_USER
+}
+
+model FeatureFlag {
+  id                String       @id @default(uuid())
+  featureKey        String
+  isDev             Boolean      @default(false)
+  isStaging         Boolean      @default(false)
+  isProd            Boolean      @default(false)
+  rolloutPercentage Int          @default(100)
+  orgId             String
+  org               Organization @relation(fields: [orgId], references: [id])
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@unique([featureKey, orgId])
+}
+
+model ApiKey {
+  id        String       @id @default(uuid())
+  key       String       @unique
+  name      String
+  orgId     String
+  org       Organization @relation(fields: [orgId], references: [id])
+  createdAt DateTime     @default(now())
+}
+
+model AuditLog {
+  id        String       @id @default(uuid())
+  orgId     String
+  org       Organization @relation(fields: [orgId], references: [id])
+  action    String
+  actor     String
+  target    String
+  timestamp DateTime     @default(now())
+}

@@ -1,0 +1,143 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-12) var(--space-4);
+}
+
+.hero {
+  text-align: center;
+  max-width: 640px;
+  margin-bottom: var(--space-12);
+}
+
+.logoRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFA500;
+  letter-spacing: 0.05em;
+}
+
+.logoSub {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.heading {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: var(--space-4);
+}
+
+.headingHighlight {
+  color: #FFA500;
+}
+
+.subheading {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 920px;
+}
+
+.portalCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all 0.22s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.portalCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(255,255,255,0.03));
+  pointer-events: none;
+}
+
+.portalCard:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cardIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cardSubtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  letter-spacing: 0.03em;
+}
+
+.arrow {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: var(--space-4);
+  color: #FFA500;
+  transition: transform 0.18s;
+}
+
+.portalCard:hover .arrow {
+  transform: translateX(4px);
+}
+
+.footer {
+  margin-top: var(--space-12);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.25);
+}

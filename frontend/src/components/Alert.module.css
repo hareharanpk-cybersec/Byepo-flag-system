@@ -1,0 +1,15 @@
+.alert {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+.success {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+.error {
+  background: var(--color-error-soft);
+  color: var(--color-error);
+}
